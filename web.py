@@ -71,7 +71,7 @@ def get_muti():
                 for stopword in stopwords:
                     if stopword in tmp:
                         muti_flag = 0
-                if 10 < len(tmp) < 30 and muti_flag == 1:
+                if len(tmp) > 10 and len(tmp) < 30 and muti_flag == 1:
                     replay.append(tmp)
         random.shuffle(replay)
         if len(replay) > 15:
@@ -137,4 +137,4 @@ if __name__ == '__main__':
         '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
     handler.setFormatter(logging_format)
     app.logger.addHandler(handler)
-    app.run(host='0.0.0.0', port=8080, threaded=True)
+    app.run(host='0.0.0.0', port=8080, threaded=True, debug=True)
